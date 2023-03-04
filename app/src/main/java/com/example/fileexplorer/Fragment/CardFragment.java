@@ -1,5 +1,6 @@
 package com.example.fileexplorer.Fragment;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -27,7 +28,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fileexplorer.FileAdapter;
 import com.example.fileexplorer.FileOpener;
-import com.example.fileexplorer.Manifest;
 import com.example.fileexplorer.OnFileSelectedListener;
 import com.example.fileexplorer.R;
 import com.karumi.dexter.Dexter;
@@ -35,6 +35,7 @@ import com.karumi.dexter.MultiplePermissionsReport;
 import com.karumi.dexter.PermissionToken;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
+
 
 import java.io.File;
 import java.io.IOException;
@@ -92,8 +93,8 @@ public class CardFragment extends Fragment implements OnFileSelectedListener {
 
     private void runtimePermission() {
         Dexter.withContext(getContext()).withPermission(
-                Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                Manifest.permission.READ_EXTERNAL_STORAGE
+                Manifest.permission.READ_EXTERNAL_STORAGE,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE
         ).withListener(new MultiplePermissionsListener() {
             @Override
             public void onPermissionsChecked(MultiplePermissionsReport multiplePermissionsReport) {

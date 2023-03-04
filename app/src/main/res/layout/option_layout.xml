@@ -10,7 +10,7 @@
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:padding="8dp"
-        android:src="@drawable/ic_baseline_details_24"></ImageView>
+        android:src="@drawable/ic_doc"></ImageView>
 
     <TextView
         android:id="@+id/txtOption"

@@ -26,7 +26,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fileexplorer.FileAdapter;
 import com.example.fileexplorer.FileOpener;
-import com.example.fileexplorer.Manifest;
 import com.example.fileexplorer.OnFileSelectedListener;
 import com.example.fileexplorer.R;
 import com.karumi.dexter.Dexter;
