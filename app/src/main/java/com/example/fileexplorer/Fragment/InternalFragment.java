@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -259,7 +260,7 @@ public class InternalFragment extends Fragment implements OnFileSelectedListener
                         Intent share = new Intent();
                         share.setAction(Intent.ACTION_SEND);
                         share.setType("image/jpeg");
-                        share.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(file));
+                        share.putExtra(Intent.EXTRA_STREAM, FileProvider.getUriForFile(getContext(), getContext().getPackageName() + ".provider", file));
                         startActivity(Intent.createChooser(share, "Share " + fileName));
                         break;
 
