@@ -141,9 +141,9 @@ public class HomeFragment extends Fragment implements OnFileSelectedListener {
     }
 
     private void runtimePermission() {
-        Dexter.withContext(getContext()).withPermission(
-                Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                Manifest.permission.READ_EXTERNAL_STORAGE
+        Dexter.withContext(getContext()).withPermissions(
+                Manifest.permission.READ_EXTERNAL_STORAGE,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE
         ).withListener(new MultiplePermissionsListener() {
             @Override
             public void onPermissionsChecked(MultiplePermissionsReport multiplePermissionsReport) {

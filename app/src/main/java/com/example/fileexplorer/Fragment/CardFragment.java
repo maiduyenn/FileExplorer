@@ -44,6 +44,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+
 public class CardFragment extends Fragment implements OnFileSelectedListener {
 
     private RecyclerView recyclerView;
@@ -92,10 +93,12 @@ public class CardFragment extends Fragment implements OnFileSelectedListener {
     }
 
     private void runtimePermission() {
-        Dexter.withContext(getContext()).withPermission(
-                Manifest.permission.READ_EXTERNAL_STORAGE,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE
-        ).withListener(new MultiplePermissionsListener() {
+        Dexter.withContext(getContext())
+                .withPermissions(
+                        Manifest.permission.READ_EXTERNAL_STORAGE,
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE
+                )
+                .withListener(new MultiplePermissionsListener(){
             @Override
             public void onPermissionsChecked(MultiplePermissionsReport multiplePermissionsReport) {
                 displayFiles();

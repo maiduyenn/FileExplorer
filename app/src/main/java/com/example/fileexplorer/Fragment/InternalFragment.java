@@ -1,5 +1,6 @@
 package com.example.fileexplorer.Fragment;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -81,10 +82,13 @@ public class InternalFragment extends Fragment implements OnFileSelectedListener
     }
 
     private void runtimePermission() {
-        Dexter.withContext(getContext()).withPermission(
-                Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                Manifest.permission.READ_EXTERNAL_STORAGE
-        ).withListener(new MultiplePermissionsListener() {
+
+        Dexter.withContext(getContext())
+                .withPermissions(
+                        Manifest.permission.READ_EXTERNAL_STORAGE,
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE
+                )
+                .withListener(new MultiplePermissionsListener() {
             @Override
             public void onPermissionsChecked(MultiplePermissionsReport multiplePermissionsReport) {
                 displayFiles();

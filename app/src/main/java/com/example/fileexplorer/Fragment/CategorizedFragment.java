@@ -75,10 +75,12 @@ public class CategorizedFragment extends Fragment implements OnFileSelectedListe
     }
 
     private void runtimePermission() {
-        Dexter.withContext(getContext()).withPermission(
-                Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                Manifest.permission.READ_EXTERNAL_STORAGE
-        ).withListener(new MultiplePermissionsListener() {
+        Dexter.withContext(getContext())
+                .withPermissions(
+                        Manifest.permission.READ_EXTERNAL_STORAGE,
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE
+                )
+                .withListener(new MultiplePermissionsListener() {
             @Override
             public void onPermissionsChecked(MultiplePermissionsReport multiplePermissionsReport) {
                 displayFiles();
